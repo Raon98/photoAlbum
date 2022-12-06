@@ -1,0 +1,2 @@
+"use strict";(self["webpackChunkfrontend"]=self["webpackChunkfrontend"]||[]).push([[217],{4855:function(n,e,r){r.r(e),r.d(e,{default:function(){return c}});var a=r(3396);function t(n,e,r,t,u,f){return(0,a.wg)(),(0,a.iD)("div",null,"mainpage입니다.")}var u={name:"mainPage"},f=r(89);const i=(0,f.Z)(u,[["render",t]]);var c=i}}]);
+//# sourceMappingURL=view-mainPage-vue.5955eca1.js.map
