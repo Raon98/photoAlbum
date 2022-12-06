@@ -12,6 +12,11 @@ const routes = [
         name: 'mainPage',
         component: loadView('mainPage'),
     },
+    {
+        path: '/testCo',
+        name: 'testCo',
+        component: loadView('testCo'),
+    },
 
 ];
 
