@@ -7,8 +7,10 @@ import axios from "axios";
 import mitts from "mitt";
 import utils from "@/plugins/utils";
 import Vuetify from '@/plugins/vuetify'
+import { Quasar } from 'quasar'
+import quasarUserOptions from './quasar-user-options'
 
-const app = createApp(App)
+const app = createApp(App).use(Quasar, quasarUserOptions)
 app.config.productionTip =false
 
 

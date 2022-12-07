@@ -1,6 +1,8 @@
 const { defineConfig } = require('@vue/cli-service')
 module.exports = defineConfig({
-  transpileDependencies: true,
+  transpileDependencies: [
+    'quasar'
+  ],
   lintOnSave: false,
 
   devServer: { //① api 요청이 있을때 어디에서 처리할지를 설정
@@ -19,8 +21,10 @@ module.exports = defineConfig({
   outputDir: '../backend/public',
 
   pluginOptions: {
-    vuetify: {
-			// https://github.com/vuetifyjs/vuetify-loader/tree/next/packages/vuetify-loader
-		}
+    vuetify: {},
+    quasar: {
+      importStrategy: 'kebab',
+      rtlSupport: true
+    }
   }
 })
