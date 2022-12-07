@@ -6,15 +6,21 @@ import store from './store/modules'
 import axios from "axios";
 import mitts from "mitt";
 import utils from "@/plugins/utils";
+import Vuetify from '@/plugins/vuetify'
 
 const app = createApp(App)
 app.config.productionTip =false
+
 
 const emitter = mitts();
 app.config.globalProperties.emitter = emitter;
 app.provide('emitter', emitter);
 
-app.use(router).use(store)
+
+app.use(router).use(store).use(Vuetify)
+
+
+
 app.use(api,{store,router})
 app.use(utils,{store})
 app.config.globalProperties.$axios = axios;

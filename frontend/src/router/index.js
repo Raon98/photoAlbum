@@ -17,6 +17,11 @@ const routes = [
         name: 'testCo',
         component: loadView('testCo'),
     },
+    {
+        path: '/photoSlide',
+        name: 'photoSlide',
+        component: loadView('photoSlide'),
+    },
 
 ];
 

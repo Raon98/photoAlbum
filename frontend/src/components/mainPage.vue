@@ -1,6 +1,8 @@
 <template>
   <div>mainpage입니다.</div>
   <button @click="movePage('testCo')">클릭</button>
+  <br>
+  <button @click="movePage('photoSlide')">클릭</button>
 </template>
 
 <script>
