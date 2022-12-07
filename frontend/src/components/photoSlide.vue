@@ -21,14 +21,19 @@
       </v-sheet>
     </v-carousel-item>
   </v-carousel>
+  <dialogEvent v-model:active="active">ㅎㅇ</dialogEvent>
+  <q-btn label="Carousel" color="primary" @click="openDialog()" />
 </template>
 
 <script>
 import {ref} from "vue";
+import dialogEvent from "@/components/dialogEvent";
 
 export default {
   name: "photoSlide",
+  components: {dialogEvent},
   setup() {
+    const active = ref(false)
     const colors = ref([
       'indigo',
       'warning',
@@ -43,11 +48,13 @@ export default {
       'Fourth',
       'Fifth',
     ])
-
+    const openDialog = () => {
+      active.value = true
+    }
     const viewItem = (item) => {
       console.log(item+"번째 슬라이드 입니다.")
     }
-    return {colors,slides,viewItem}
+    return {colors,slides,viewItem,active,openDialog}
   }
 }
 </script>
