@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import {ref} from "vue";
+import {ref, watch} from "vue";
 import dialogEvent from "@/components/dialogEvent";
 
 export default {
@@ -34,6 +34,7 @@ export default {
   components: {dialogEvent},
   setup() {
     const active = ref(false)
+    console.log(active.value)
     const colors = ref([
       'indigo',
       'warning',
@@ -48,6 +49,11 @@ export default {
       'Fourth',
       'Fifth',
     ])
+    watch(active,view=>{
+      console.log("ACTIVE 반응")
+    //  active.value=false
+    })
+
     const openDialog = () => {
       active.value = true
     }

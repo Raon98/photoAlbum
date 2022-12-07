@@ -1,57 +1,59 @@
 <template>
   <div class="q-pa-md q-gutter-sm">
-    <q-btn label="Carousel" color="primary" @click="carousel = true" />
-    <q-btn label="Card" color="primary" @click="card = true" />
-    <q-btn label="Sliders" color="primary" @click="sliders = true" />
+    <q-btn label="Carousel" color="primary" @click="carousel = true"/>
+    <q-btn label="Card" color="primary" @click="card = true"/>
+    <q-btn label="Sliders" color="primary" @click="sliders = true"/>
 
     <q-dialog v-model="active">
-      <q-carousel
-          transition-prev="slide-right"
-          transition-next="slide-left"
-          swipeable
-          animated
-          v-model="slide"
-          control-color="primary"
-          navigation-icon="radio_button_unchecked"
-          navigation
-          padding
-          height="400px"
-          class="bg-white shadow-1 rounded-borders"
-      >
+      <q-layout view="Lhh lpR fff" container class="bg-white" style="height: 50%">
+        <q-header class="bg-black text-white" style="text-align: right">
+          <q-btn flat v-close-popup round dense icon="close" @click="dialogClose()"/>
+        </q-header>
 
-        <q-carousel-slide :name="1" class="column no-wrap flex-center">
-          <q-btn
-              fab
-              color="primary"
-              icon="place"
-              class="absolute"
-              style="top: 0; right: 12px; transform: translateY(-50%);"
-          />
-          <q-icon name="style" color="primary" size="56px" />
-          <div class="q-mt-md text-center">
-            {{ lorem }}
-          </div>
-        </q-carousel-slide>
-        <q-carousel-slide :name="2" class="column no-wrap flex-center">
-          <q-icon name="live_tv" color="primary" size="56px" />
-          <div class="q-mt-md text-center">
-            {{ lorem }}
-          </div>
-        </q-carousel-slide>
-        <q-carousel-slide :name="3" class="column no-wrap flex-center">
-          <q-icon name="layers" color="primary" size="56px" />
-          <div class="q-mt-md text-center">
-            {{ lorem }}
-          </div>
-        </q-carousel-slide>
-        <q-carousel-slide :name="4" class="column no-wrap flex-center">
-          <q-icon name="terrain" color="primary" size="56px" />
-          <div class="q-mt-md text-center">
-            {{ lorem }}
-          </div>
-        </q-carousel-slide>
-      </q-carousel>
+        <q-page-container>
+          <q-carousel
+              transition-prev="slide-right"
+              transition-next="slide-left"
+              swipeable
+              animated
+              v-model="slide"
+              control-color="primary"
+              navigation-icon="radio_button_unchecked"
+              navigation
+              padding
+              height="400px"
+              class="bg-white shadow-1 rounded-borders"
+          >
+
+            <q-carousel-slide :name="1" class="column no-wrap flex-center">
+              <q-icon name="style" color="primary" size="56px"/>
+              <div class="q-mt-md text-center">
+                {{ lorem }}
+              </div>
+            </q-carousel-slide>
+            <q-carousel-slide :name="2" class="column no-wrap flex-center">
+              <q-icon name="live_tv" color="primary" size="56px"/>
+              <div class="q-mt-md text-center">
+                {{ lorem }}
+              </div>
+            </q-carousel-slide>
+            <q-carousel-slide :name="3" class="column no-wrap flex-center">
+              <q-icon name="layers" color="primary" size="56px"/>
+              <div class="q-mt-md text-center">
+                {{ lorem }}
+              </div>
+            </q-carousel-slide>
+            <q-carousel-slide :name="4" class="column no-wrap flex-center">
+              <q-icon name="terrain" color="primary" size="56px"/>
+              <div class="q-mt-md text-center">
+                {{ lorem }}
+              </div>
+            </q-carousel-slide>
+          </q-carousel>
+        </q-page-container>
+      </q-layout>
     </q-dialog>
+
 
     <!--    <q-dialog v-model="card">-->
     <!--      <q-card class="my-card">-->
@@ -105,19 +107,19 @@ import {computed, ref} from "vue";
 
 export default {
   name: "dialog",
-  props : ['active'],
-  setup (props) {
-    const active = computed(()=>props.active)
-
+  props: ['active'],
+  setup(props,{emit}) {
+    const active = computed(() => props.active)
+    const dialogClose = () => {
+      console.log(active.value +"CLICK 확인")
+      active.value = false
+      emit("update:active", !active.value)
+    }
     return {
-      active,
+      active,dialogClose,
       carousel: ref(false),
-      card: ref(false),
-      sliders: ref(false),
-
       slide: ref(1),
       lorem: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Natus, ratione eum minus fuga, quasi dicta facilis corporis magnam, suscipit at quo nostrum!',
-
       stars: ref(3),
 
       slideVol: ref(39),
