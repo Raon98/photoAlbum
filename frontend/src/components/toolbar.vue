@@ -7,7 +7,7 @@
   >
     <v-toolbar class="toolbar_custom" density="compact" >
 
-      <div class="toolbar_title_custom"> 안녕하세요</div>
+      <div class="toolbar_title_custom"> LOGO</div>
       <v-spacer></v-spacer>
 
 <!--      <v-btn icon>-->
