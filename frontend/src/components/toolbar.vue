@@ -2,12 +2,12 @@
   <v-card
       color="white"
       flat
-      height="5%"
+      height="auto"
       rounded="0"
   >
     <v-toolbar class="toolbar_custom" density="compact" >
 
-      <div class="toolbar_title_custom"> </div>
+      <div class="toolbar_title_custom"  >성철고은♡</div>
       <v-spacer></v-spacer>
 
 <!--      <v-btn icon>-->
@@ -32,14 +32,24 @@ export default {
 </script>
 
 <style scoped>
+
+@font-face {
+  font-family: 'KOTRAHOPE';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/KOTRAHOPE.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
 .toolbar_custom { height: auto; width: 100%; background: white; margin-top:15px; padding-top: 15px; padding-bottom: 15px; color: black;
+
 }
 .toolbar_title_custom {
   width: 100%;
   height: 100%;
-  text-align: center;
+  text-align: right;
   margin: 16px;
   padding-top: 5px;
-  font-size: 24px;
+  font-size: 15px;
+  font-family: 'KOTRAHOPE'
 }
 </style>

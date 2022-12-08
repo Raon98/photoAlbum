@@ -2,7 +2,7 @@
   <div class="text-center section">
     <h2 class="h2" style="font-family: 'KOTRAHOPE'">기록장</h2>
     <p class="text-lg font-medium text-gray-600 mb-6">
-      Roll your own calendars using scoped slots
+      Every love story is beautiful but ours is my favorite
     </p>
     <v-calendar
         class="custom-calendar max-w-full"
