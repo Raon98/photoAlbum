@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-app class="form_custom">
     <!--    <v-navigation-drawer app>-->
     <!--      &lt;!&ndash; &ndash;&gt;-->
     <!--    </v-navigation-drawer>-->
@@ -39,15 +39,16 @@ export default {
 }
 </script>
 <style>
-.div .scroll {
+.form_custom {
   overflow: hidden !important;
+  touch-action: none;
 }
-
-.div.scroll {
+form_custom .div .scroll {
   overflow: hidden !important;
+  touch-action: none;
 }
-
-.scroll {
-  overflow: hidden !important;
+body {
+  overflow: hidden;
+  touch-action: none;
 }
 </style>

@@ -22,6 +22,7 @@
     "postcss-rtl": "^2.0.0",
     "quasar": "^2.0.0",
     "roboto-fontface": "*",
+    "v-calendar": "^3.0.0-alpha.8",
     "v-click-outside": "^3.2.0",
     "vee-validate": "^4.5.8",
     "vue": "^3.2.13",

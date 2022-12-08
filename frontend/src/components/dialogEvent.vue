@@ -1,11 +1,11 @@
 <template>
   <div class="q-pa-md q-gutter-sm" id="layerPopup">
     <q-dialog v-model="active" >
-      <q-layout view="Lhh lpR fff" container class="bg-white" style="height: 50%;" v-click-outside="onClickOutside">
+      <q-layout view="Lhh lpR fff" container class="bg-white" style="height: 60%; overflow-y: hidden; overflow: hidden"   >
         <q-header class="bg-white text-green-100" style="text-align: right" >
           <q-btn flat v-close-popup round dense icon="close" @click="dialogClose()" />
         </q-header>
-        <q-card class="my-card">
+        <q-card class="my-card" >
           <q-img src="https://cdn.quasar.dev/img/parallax2.jpg" height="100%">
             <div class="absolute-bottom text-h6">
               Title
@@ -27,8 +27,8 @@ import vClickOutside from 'v-click-outside'
 
 export default {
   name: "dialog",
-  directives: {
-    clickOutside: vClickOutside.directive
+  components: {
+    clickOutside: vClickOutside
   },
   props: ['active'],
   setup(props, {emit}) {
@@ -45,10 +45,11 @@ export default {
       active.value = false
       emit("update:active", !active.value)
     }
-    const onClickOutside = () => {
-      console.log("외부클릭")
-      //emit("update:active", !active.value)
-    }
+    // const onClickOutside = () => {
+    //   console.log("외부클릭")
+    //   emit("update:active", !active.value)
+    // }
+
 
     onMounted(() => {
 
@@ -62,7 +63,7 @@ export default {
       slideVol,
       slideAlarm,
       slideVibration,
-      dialogClose, onClickOutside
+      dialogClose
     }
   }
 }
@@ -77,5 +78,11 @@ export default {
 }
 .scroll {
    overflow: hidden !important;
+}
+body {
+  overflow: hidden !important;
+}
+.q-pa-md q-gutter-sm {
+  overflow: hidden !important;
 }
 </style>

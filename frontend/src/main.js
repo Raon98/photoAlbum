@@ -9,6 +9,8 @@ import utils from "@/plugins/utils";
 import Vuetify from '@/plugins/vuetify'
 import { Quasar } from 'quasar'
 import quasarUserOptions from './quasar-user-options'
+import 'v-calendar/dist/style.css';
+import VCalendar from 'v-calendar';
 
 const app = createApp(App).use(Quasar, quasarUserOptions)
 app.config.productionTip =false
@@ -19,7 +21,7 @@ app.config.globalProperties.emitter = emitter;
 app.provide('emitter', emitter);
 
 
-app.use(router).use(store).use(Vuetify)
+app.use(router).use(store).use(Vuetify).use(VCalendar,{})
 
 
 
