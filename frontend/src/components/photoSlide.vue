@@ -1,4 +1,4 @@
-<template>
+<template xmlns="http://www.w3.org/1999/html">
   <v-carousel
       cycle
       height="400"
@@ -16,14 +16,17 @@
         <div class="d-flex fill-height justify-center align-center">
           <div class="text-h2" @click="viewItem(i)">
             {{ slide }} Slide
+
           </div>
+
         </div>
       </v-sheet>
     </v-carousel-item>
+
   </v-carousel>
+  <q-btn label="Carousel" color="primary" @click="openDialog()" />
   <div class="layerPopup" @click="closeModal" > <dialogEvent v-model:active="active">ㅎㅇ</dialogEvent> </div>
 
-  <q-btn label="Carousel" color="primary" @click="openDialog()" />
 </template>
 
 <script>

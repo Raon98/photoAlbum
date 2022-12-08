@@ -1,27 +1,7 @@
 <template>
-  <v-bottom-navigation
-    :value="valueDt"
-    color="teal"
-    grow
->
-<!--    <v-btn>-->
-<!--      <span>Recents</span>-->
-
-<!--      <v-icon>mdi-history</v-icon>-->
-<!--    </v-btn>-->
-
-    <v-btn>
-      <span>Favorites</span>
-
-      <v-icon>mdi-heart</v-icon>
-    </v-btn>
-
-<!--    <v-btn>-->
-<!--      <span>Nearby</span>-->
-
-<!--      <v-icon>mdi-map-marker</v-icon>-->
-<!--    </v-btn>-->
-  </v-bottom-navigation>
+  <div class="btn-custom">
+    <q-btn push color="primary" round icon="card_giftcard"  size="20px"/>
+  </div>
 </template>
 
 <script>
@@ -40,5 +20,12 @@ export default {
 </script>
 
 <style scoped>
+.btn-custom {
+  position: relative;
+  margin-right: 20px;
+  margin-left: 80%;
+  text-align: right;
+  margin-bottom: 15px;
 
-</style>
+}
+</style>s

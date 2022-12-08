@@ -1,7 +1,7 @@
 <template>
-  <div class="q-pa-md q-gutter-sm" id="layerPopup" >
+  <div class="q-pa-md q-gutter-sm" id="layerPopup">
     <q-dialog v-model="active">
-      <q-layout view="Lhh lpR fff" container class="bg-white" style="height: 50%">
+      <q-layout view="Lhh lpR fff" container class="bg-white" style="height: 50%" v-click-outside="onClickOutside">
         <q-header class="bg-black text-white" style="text-align: right">
           <q-btn flat v-close-popup round dense icon="close" @click="dialogClose()"/>
         </q-header>
@@ -100,9 +100,13 @@
 
 <script>
 import {computed, onMounted, ref} from "vue";
+import vClickOutside from 'v-click-outside'
 
 export default {
   name: "dialog",
+  directives: {
+    clickOutside: vClickOutside.directive
+  },
   props: ['active'],
   setup(props, {emit}) {
     const active = computed(() => props.active)
@@ -115,15 +119,14 @@ export default {
     const slideAlarm = ref(56)
     const slideVibration = ref(63)
     const dialogClose = () => {
-      console.log(active.value + "CLICK 확인")
       active.value = false
       emit("update:active", !active.value)
     }
-    const closeModal = () => {
-
+    const onClickOutside = () => {
+      emit("update:active", !active.value)
     }
 
-    onMounted(()=>{
+    onMounted(() => {
 
     })
     return {
@@ -135,7 +138,7 @@ export default {
       slideVol,
       slideAlarm,
       slideVibration,
-      dialogClose,closeModal
+      dialogClose, onClickOutside
     }
   }
 }
