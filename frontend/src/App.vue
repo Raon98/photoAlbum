@@ -1,10 +1,10 @@
 <template>
   <v-app>
-<!--    <v-navigation-drawer app>-->
-<!--      &lt;!&ndash; &ndash;&gt;-->
-<!--    </v-navigation-drawer>-->
+    <!--    <v-navigation-drawer app>-->
+    <!--      &lt;!&ndash; &ndash;&gt;-->
+    <!--    </v-navigation-drawer>-->
 
-  <toolbar></toolbar>
+    <toolbar></toolbar>
 
 
     <!-- Sizes your content based upon application components -->
@@ -29,6 +29,7 @@
 
 import BottomNav from "@/components/bottomNav";
 import Toolbar from "@/components/toolbar";
+
 export default {
   name: 'App',
   components: {Toolbar, BottomNav},
@@ -37,3 +38,16 @@ export default {
   }),
 }
 </script>
+<style>
+.div .scroll {
+  overflow: hidden !important;
+}
+
+.div.scroll {
+  overflow: hidden !important;
+}
+
+.scroll {
+  overflow: hidden !important;
+}
+</style>
