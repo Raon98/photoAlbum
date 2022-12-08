@@ -21,7 +21,8 @@
       </v-sheet>
     </v-carousel-item>
   </v-carousel>
-  <dialogEvent v-model:active="active">ㅎㅇ</dialogEvent>
+  <div class="layerPopup" @click="closeModal" > <dialogEvent v-model:active="active">ㅎㅇ</dialogEvent> </div>
+
   <q-btn label="Carousel" color="primary" @click="openDialog()" />
 </template>
 
@@ -60,7 +61,10 @@ export default {
     const viewItem = (item) => {
       console.log(item+"번째 슬라이드 입니다.")
     }
-    return {colors,slides,viewItem,active,openDialog}
+    const closeModal = () => {
+      console.log("외부클릭")
+    }
+    return {colors,slides,viewItem,active,openDialog,closeModal}
   }
 }
 </script>

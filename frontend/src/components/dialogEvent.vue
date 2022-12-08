@@ -1,9 +1,5 @@
 <template>
-  <div class="q-pa-md q-gutter-sm">
-    <q-btn label="Carousel" color="primary" @click="carousel = true"/>
-    <q-btn label="Card" color="primary" @click="card = true"/>
-    <q-btn label="Sliders" color="primary" @click="sliders = true"/>
-
+  <div class="q-pa-md q-gutter-sm" id="layerPopup" >
     <q-dialog v-model="active">
       <q-layout view="Lhh lpR fff" container class="bg-white" style="height: 50%">
         <q-header class="bg-black text-white" style="text-align: right">
@@ -103,28 +99,43 @@
 </template>
 
 <script>
-import {computed, ref} from "vue";
+import {computed, onMounted, ref} from "vue";
 
 export default {
   name: "dialog",
   props: ['active'],
-  setup(props,{emit}) {
+  setup(props, {emit}) {
     const active = computed(() => props.active)
+    const carousel = ref(false)
+    const slide = ref(1)
+    const lorem = 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Natus, ratione eum minus fuga, quasi dicta facilis corporis magnam, suscipit at quo nostrum!'
+    const stars = ref(3)
+
+    const slideVol = ref(39)
+    const slideAlarm = ref(56)
+    const slideVibration = ref(63)
     const dialogClose = () => {
-      console.log(active.value +"CLICK 확인")
+      console.log(active.value + "CLICK 확인")
       active.value = false
       emit("update:active", !active.value)
     }
-    return {
-      active,dialogClose,
-      carousel: ref(false),
-      slide: ref(1),
-      lorem: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Natus, ratione eum minus fuga, quasi dicta facilis corporis magnam, suscipit at quo nostrum!',
-      stars: ref(3),
+    const closeModal = () => {
 
-      slideVol: ref(39),
-      slideAlarm: ref(56),
-      slideVibration: ref(63)
+    }
+
+    onMounted(()=>{
+
+    })
+    return {
+      active,
+      carousel,
+      slide,
+      lorem,
+      stars,
+      slideVol,
+      slideAlarm,
+      slideVibration,
+      dialogClose,closeModal
     }
   }
 }
