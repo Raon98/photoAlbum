@@ -1,6 +1,6 @@
 <template>
   <div class="text-center section">
-    <h2 class="h2">Custom Calendars</h2>
+    <h2 class="h2" style="font-family: 'KOTRAHOPE'">기록장</h2>
     <p class="text-lg font-medium text-gray-600 mb-6">
       Roll your own calendars using scoped slots
     </p>
@@ -13,14 +13,14 @@
     >
       <template v-slot:day-content="{ day, attributes }">
         <div class="flex flex-col h-full z-10 overflow-hidden">
-          <span class="day-label text-sm text-gray-900">{{ day.day }}</span>
+          <span class="day-label text-m text-gray-900">{{ day.day }}</span>
           <div class="flex-grow overflow-y-auto overflow-x-auto">
             <p
                 v-for="attr in attributes"
                 :key="attr.key"
-                class="text-xs leading-tight rounded-sm p-1 mt-0 mb-1"
+                class=" leading-tight rounded-sm p-1 mt-0 mb-1"
                 :class="attr.customData.class"
-                style="position: absolute;width: 90%; height: 90%; padding: 5px;
+                style="position: absolute;width: 90%; height: 90%; padding: 5px; text-align: center ; font-size: 10px;
 "
             >
               {{ attr.customData.title }}
@@ -30,6 +30,7 @@
       </template>
     </v-calendar>
   </div>
+
 </template>
 
 <script>
@@ -83,34 +84,13 @@ export default {
   display: none;
 }
 
-.custom-calendar.vc-container {
-  border-radius: 0;
-  width: 100%;
-}
-
-.custom-calendar.vc-container .vc-header {
-  background-color: #f1f5f8;
-  padding: 10px 0;
-}
-
-.custom-calendar.vc-container .vc-weeks {
-  padding: 0;
-}
 
 .custom-calendar.vc-container .vc-weekday {
-  background-color: #f8fafc;
-  border-bottom: 1px solid #eaeaea;
-  border-top: 1px solid #eaeaea;
-  padding: 5px 0;
+  background-color: #f8fafc;border-bottom: 1px solid #eaeaea;border-top: 1px solid #eaeaea;padding: 5px 0;
 }
 
 .custom-calendar.vc-container .vc-day {
-  padding: 0 5px 3px 5px;
-  text-align: left;
-  min-height: 90px;
-  min-width: 90px;
-  overflow: auto;
-  background-color: white;
+  padding: 0 5px 3px 5px;text-align: left;min-height: 90px;min-width: 90px;overflow: auto;background-color: white;
 }
 
 .custom-calendar.vc-container .vc-day.weekday-1,
@@ -132,5 +112,12 @@ export default {
 
 .custom-calendar.vc-container .vc-day-dots {
   margin-bottom: 5px;
+}
+
+@font-face {
+  font-family: 'KOTRAHOPE';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/KOTRAHOPE.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
 }
 </style>

@@ -2,12 +2,12 @@
   <v-card
       color="white"
       flat
-      height="auto"
+      height="5%"
       rounded="0"
   >
     <v-toolbar class="toolbar_custom" density="compact" >
 
-      <div class="toolbar_title_custom"> LOGO</div>
+      <div class="toolbar_title_custom"> </div>
       <v-spacer></v-spacer>
 
 <!--      <v-btn icon>-->
