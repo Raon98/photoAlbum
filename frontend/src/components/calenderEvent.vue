@@ -1,7 +1,7 @@
 <template>
   <div class="text-center section">
     <h2 class="h2" style="font-family: 'KOTRAHOPE'">기록장</h2>
-    <p class="text-lg font-medium text-gray-600 mb-6">
+    <p class="text-lg font-medium text-gray-600 mb-6" style="font-family: 'KOTRAHOPE'">
       Every love story is beautiful but ours is my favorite
     </p>
     <v-calendar
