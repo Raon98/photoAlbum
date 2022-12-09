@@ -4,16 +4,18 @@
     <q-btn label="Carousel" color="primary" @click="openDialog()"/>
   </div>
   <dialogEvent v-model:active="active">ㅎㅇ</dialogEvent>
+  <bottom-nav/>
 </template>
 
 <script>
 import {ref, watch} from "vue";
 import dialogEvent from "@/components/dialogEvent";
 import calenderEvent from "@/components/calenderEvent";
+import BottomNav from "@/components/bottomNav";
 
 export default {
   name: "photoSlide",
-  components: {dialogEvent, calenderEvent},
+  components: {dialogEvent, calenderEvent,BottomNav},
   setup() {
     const active = ref(false)
     console.log(active.value)

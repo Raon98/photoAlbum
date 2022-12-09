@@ -53,7 +53,7 @@ body {
 }
 
 .content {
-  height: 150%;
+  height: 100%;
 }
 
 .sign-custom {
@@ -79,9 +79,8 @@ body {
   position: relative;
   width: 100%;
   height: 15rem;
-  margin-top: 5%;
+  margin-top: 10%;
   font-size: 100%;
-  padding-top: 20%;
   font-family: 'KOTRAHOPE';
   text-align: center;
   color: saddlebrown;
@@ -91,7 +90,7 @@ body {
   position: absolute;
   font-size: 20px;
   left: 75%;
-  top: 80%;
+  top: 80VH;
   padding: 5px;
   margin: 5px;
   font-family: 'KOTRAHOPE';
@@ -108,7 +107,7 @@ body {
   width: 100%;
   text-align: center;
   padding-top: 10px;
-  padding-left: 20%;
+  padding-left: 30%;
 }
 
 .number {

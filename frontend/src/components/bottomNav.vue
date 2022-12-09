@@ -25,7 +25,7 @@ export default {
   margin-right: 20px;
   margin-left: 80%;
   text-align: right;
-  margin-bottom: 15px;
+  margin-top: 30%;
 
 }
 </style>s
