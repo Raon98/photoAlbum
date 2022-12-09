@@ -1,6 +1,6 @@
 <template>
   <div class="content">
-    <div class="img_custom_main">
+    <div class="custom_main" >
       <div class="tilte_custom">
         <div style="position: relative; margin-right:40%; font-size: 50px; color: gold">고은부터</div>
         <div style="position: relative; margin-left: 40%; font-size: 50px">성철까지</div>
@@ -68,18 +68,18 @@ body {
 .sign-custom_main {
   text-align: center;
 }
-
+.custom_main {
+}
 .number-custom-main {
   position: relative;
   width: 100%;
 }
 
-.img_custom_main .tilte_custom {
+.custom_main .tilte_custom {
   position: relative;
   width: 100%;
   height: 15rem;
-
-  margin-top: 80px;
+  margin-top: 5%;
   font-size: 100%;
   padding-top: 20%;
   font-family: 'KOTRAHOPE';
@@ -117,7 +117,7 @@ body {
   padding-left: 10px;
   margin-left: 15px;
   border-radius: 10px;
-  font-size: 30px;
+  font-size: 25px;
   font-family: 'KOTRAHOPE';
   color: whitesmoke;
 }
