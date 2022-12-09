@@ -1,7 +1,7 @@
 <template>
   <div class="text-center section">
     <h2 class="h2" style="font-family: 'KOTRAHOPE'">기록장</h2>
-    <p class="text-lg font-medium text-gray-600 mb-6" style="font-family: 'KOTRAHOPE'">
+    <p class="text-lg font-medium text-gray-600 mb-6" style="font-family: 'KOTRAHOPE'; opacity: 40%;">
       Every love story is beautiful but ours is my favorite
     </p>
     <v-calendar
@@ -20,8 +20,8 @@
                 :key="attr.key"
                 class=" leading-tight rounded-sm p-1 mt-0 mb-1"
                 :class="attr.customData.class"
-                style="position: absolute;width: 90%; height: 90%; padding: 5px; text-align: center ; font-size: 10px;
-"
+                style="position: absolute;width: 90%; height: 90%; padding: 5px; text-align: center ; font-size: 10px;"
+                @click="detailPhoto(attr)"
             >
               {{ attr.customData.title }}
             </p>
@@ -69,8 +69,10 @@ export default {
         dates: new Date(year, month, 2),
       },
     ])
-
-    return {dateOpen, start, type, typeOptions, masks, attributes}
+    const detailPhoto = (item) => {
+      console.log(item)
+    }
+    return {dateOpen, start, type, typeOptions, masks, attributes,detailPhoto}
   }
 }
 </script>

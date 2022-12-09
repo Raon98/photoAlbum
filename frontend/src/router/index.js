@@ -9,8 +9,13 @@ function loadView(view) {
 const routes = [
     {
         path: '/',
-        name: 'mainPage',
-        component: loadView('mainPage'),
+        name: 'intro',
+        component: loadView('intro'),
+    },
+    {
+        path: '/appRoot',
+        name: 'appRoot',
+        component: loadView('appRoot'),
     },
     {
         path: '/testCo',

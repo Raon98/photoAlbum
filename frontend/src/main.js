@@ -11,17 +11,17 @@ import { Quasar } from 'quasar'
 import quasarUserOptions from './quasar-user-options'
 import 'v-calendar/dist/style.css';
 import VCalendar from 'v-calendar';
+import VueNumber from "vue-number-animation";
 
 const app = createApp(App).use(Quasar, quasarUserOptions)
 app.config.productionTip =false
-
 
 const emitter = mitts();
 app.config.globalProperties.emitter = emitter;
 app.provide('emitter', emitter);
 
 
-app.use(router).use(store).use(Vuetify).use(VCalendar,{})
+app.use(router).use(store).use(Vuetify).use(VCalendar,{}).use(VueNumber);
 
 
 

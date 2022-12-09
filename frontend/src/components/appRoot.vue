@@ -9,27 +9,27 @@
     </v-app-bar>
 
     <!-- Sizes your content based upon application components -->
-    <v-main class="main_custom" style="overflow:hidden; width: 100%; height: 80%">
+    <v-main class="main_custom" style="overflow:hidden;">
       <!-- Provides the application the proper gutter -->
       <v-container fluid>
         <!-- If using vue-router -->
         <router-view></router-view>
+        <photoSlide/>
       </v-container>
+      <bottom-nav/>
     </v-main>
-    <v-footer style="height: 10px; background: teal"></v-footer>
+    <v-footer style="height: 10px; background: teal" ></v-footer>
   </v-app>
-
 </template>
 
 <script>
 
 import BottomNav from "@/components/bottomNav";
 import Toolbar from "@/components/toolbar";
-import Intro from "@/components/intro";
-
+import photoSlide from "@/components/photoSlide";
 export default {
-  name: 'App',
-  components: {Intro, Toolbar, BottomNav},
+  name: 'appRoot',
+  components: {Toolbar, BottomNav,photoSlide},
   data: () => ({
     //
   }),
@@ -54,13 +54,11 @@ body {
   overflow: hidden;
   height: 100%
 }
-
-html {
+html{
   height: 100%;
 }
-
-.main_custom {
-  padding-bottom: 0px !important;
+.main_custom{
+  padding-bottom : 0px !important;
 }
 
 
