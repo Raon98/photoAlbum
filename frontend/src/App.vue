@@ -1,10 +1,12 @@
 <template>
-    <v-app style="overflow-y: hidden">
+    <v-app style="overflow-y: hidden; background: #bcaaa4">
       <!--    <v-navigation-drawer app>-->
       <!--      &lt;!&ndash; &ndash;&gt;-->
       <!--    </v-navigation-drawer>-->
 
-      <toolbar style="position: relative;"></toolbar>
+      <v-app-bar style="background: beige">
+<!--        <toolbar style="position: relative;"></toolbar>-->
+      </v-app-bar>
 
       <!-- Sizes your content based upon application components -->
       <v-main class="main_custom" style="overflow:hidden;">
@@ -16,7 +18,7 @@
         </v-container>
         <bottom-nav/>
       </v-main>
-
+     <v-footer style="height: 10px; background: teal" ></v-footer>
     </v-app>
 </template>
 

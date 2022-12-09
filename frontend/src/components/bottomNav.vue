@@ -1,6 +1,6 @@
 <template>
   <div class="btn-custom">
-    <q-btn push color="primary" round icon="card_giftcard"  size="20px"/>
+    <q-btn push color="teal"  round icon="local_florist" size="20px" style="background: white" />
   </div>
 </template>
 
