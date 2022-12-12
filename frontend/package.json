@@ -33,9 +33,11 @@
     "vue-number-animation": "^1.1.2",
     "vue-router": "^4.1.6",
     "vue-signature-pad": "^3.0.2",
+    "vue3-resize": "^0.2.0",
     "vuerollr": "^2.0.3",
     "vuetify": "^3.0.0-beta.0",
     "vuex": "^4.0.2",
+    "vuex-persistedstate": "^4.1.0",
     "webfontloader": "^1.0.0"
   },
   "devDependencies": {

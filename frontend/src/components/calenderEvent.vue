@@ -13,7 +13,7 @@
     >
       <template v-slot:day-content="{ day, attributes }">
         <div class="flex flex-col h-full z-10 overflow-hidden ">
-          <span class="day-label text-m text-gray-900" style="height: 6VH;">{{ day.day }}</span>
+          <span class="day-label text-m text-gray-900" style="height: 4VH;">{{ day.day }}</span>
           <div class="flex-grow overflow-y-auto overflow-x-auto">
             <p
                 v-for="attr in attributes"

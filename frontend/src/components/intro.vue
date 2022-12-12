@@ -1,44 +1,58 @@
 <template>
-  <div class="content">
-    <div class="custom_main" >
-      <div class="tilte_custom">
-        <div style="position: relative; margin-right:40%; font-size: 7vh; color: gold">고은부터</div>
-        <div style="position: relative; margin-left: 40%; font-size: 7vh">성철까지</div>
-        <div class="number-custom-main">
-          <div class="today" style="position: relative">
-            <div>
-              <number class="number" :from="0" :to="2022" :duration="2"/>
-              <span class="number-gubn">년</span>
-              <number class="number" :from="0" :to="12" :duration="2"/>
-              <span class="number-gubn">월</span>
-              <number class="number" :from="0" :to="26" :duration="2"/>
-              <span class="number-gubn">일</span>
+  <transition name="slide-fade">
+    <div class="content">
+      <div class="custom_main">
+        <div class="tilte_custom">
+          <div style="position: relative; margin-right:40%; font-size: 7vh; color: gold">고은부터</div>
+          <div style="position: relative; margin-left: 40%; font-size: 7vh">성철까지</div>
+          <div class="number-custom-main">
+            <div class="today" style="position: relative">
+              <div>
+                <number class="number" :from="0" :to="2022" :duration="2"/>
+                <span class="number-gubn">년</span>
+                <number class="number" :from="0" :to="12" :duration="2"/>
+                <span class="number-gubn">월</span>
+                <number class="number" :from="0" :to="26" :duration="2"/>
+                <span class="number-gubn">일</span>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="button-custom">
-        <button  @click="mainMove()">보러가기</button>
+        <div class="button-custom">
+          <a href="javascript:void(0)" @click="clsTest">
+            <v-img
+                :src="clickImg"
+                height="7vh"
+                width="7vh"
+
+            ></v-img>
+          </a>
+        </div>
       </div>
     </div>
-  </div>
+  </transition>
 </template>
 
 
 <script>
 
 import {cheol} from "@/plugins/cheol";
+import {computed} from "vue";
 
 export default {
   name: "intro",
   setup() {
-    const {router} = cheol()
+    const clickImg = require('../assets/images/logoPage.png')
+    const {store} = cheol()
+    store.commit('PDS/setCls', {test : '123'},)
 
-    const mainMove = () => {
-      router.push('photoSlide')
+    const cls = computed(() => store.getters['PDS/getCls'])
+
+    const clsTest = () => {
+      console.log(cls.value)
     }
-
-    return {mainMove
+    return {
+      clickImg,clsTest
     }
   }
 }
@@ -53,7 +67,7 @@ body {
 }
 
 .content {
-  height: 100%;
+  height: 60vh;
 }
 
 .sign-custom {
@@ -68,8 +82,10 @@ body {
 .sign-custom_main {
   text-align: center;
 }
+
 .custom_main {
 }
+
 .number-custom-main {
   position: relative;
   width: 100%;
@@ -89,15 +105,23 @@ body {
 .button-custom {
   position: absolute;
   font-size: 3vh;
-  left: 75%;
-  top: 80VH;
+  top: 63vh;
   padding: 5px;
-  margin: 5px;
-  font-family: 'KOTRAHOPE';
+  margin: 5px 5px 5px 30vh;
+  font-family: 'FlowerSalt';
+  color: whitesmoke;
 }
+
 @font-face {
   font-family: 'KOTRAHOPE';
   src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/KOTRAHOPE.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'FlowerSalt';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-2@1.0/FlowerSalt.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
 }
@@ -125,5 +149,20 @@ body {
   font-size: 3VH;
   font-family: 'KOTRAHOPE';
   color: whitesmoke;
+}
+
+.slide-fade-enter-active {
+  transition: all .3s ease;
+}
+
+.slide-fade-leave-active {
+  transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+
+.slide-fade-enter, .slide-fade-leave-to
+  /* .slide-fade-leave-active below version 2.1.8 */
+{
+  transform: translateX(10px);
+  opacity: 0;
 }
 </style>

@@ -1,10 +1,10 @@
 import {createStore} from "vuex";
 import createPersistedState from "vuex-persistedstate";
+import {PDS} from "@/store/modules/PDS";
 
-import * as modules from "./modules";
 
 export default createStore({
-    modules: modules.default,
+    modules: {PDS},
     plugins: [
         createPersistedState({
             paths: ["PDS.cls"],
@@ -12,3 +12,5 @@ export default createStore({
         })
     ]
 })
+
+
