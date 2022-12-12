@@ -2,8 +2,8 @@
   <div class="content">
     <div class="custom_main" >
       <div class="tilte_custom">
-        <div style="position: relative; margin-right:40%; font-size: 50px; color: gold">고은부터</div>
-        <div style="position: relative; margin-left: 40%; font-size: 50px">성철까지</div>
+        <div style="position: relative; margin-right:40%; font-size: 7vh; color: gold">고은부터</div>
+        <div style="position: relative; margin-left: 40%; font-size: 7vh">성철까지</div>
         <div class="number-custom-main">
           <div class="today" style="position: relative">
             <div>
@@ -88,7 +88,7 @@ body {
 
 .button-custom {
   position: absolute;
-  font-size: 20px;
+  font-size: 3vh;
   left: 75%;
   top: 80VH;
   padding: 5px;
@@ -106,8 +106,7 @@ body {
   margin: auto;
   width: 100%;
   text-align: center;
-  padding-top: 10px;
-  padding-left: 30%;
+  padding-top: 7VH;
 }
 
 .number {
@@ -116,14 +115,14 @@ body {
   padding-left: 10px;
   margin-left: 15px;
   border-radius: 10px;
-  font-size: 25px;
+  font-size: 3.5VH;
   font-family: 'KOTRAHOPE';
   color: whitesmoke;
 }
 
 
 .number-gubn {
-  font-size: 20px;
+  font-size: 3VH;
   font-family: 'KOTRAHOPE';
   color: whitesmoke;
 }

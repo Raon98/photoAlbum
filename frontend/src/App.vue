@@ -4,21 +4,21 @@
     <!--      &lt;!&ndash; &ndash;&gt;-->
     <!--    </v-navigation-drawer>-->
 
-    <v-app-bar style="background: beige; height: 10VH;" >
+    <v-app-bar style="background: beige; height: 7VH;" >
       <!--        <toolbar style="position: relative;"></toolbar>-->
     </v-app-bar>
 
     <!-- Sizes your content based upon application components -->
-    <v-main class="main_custom" style="overflow:hidden; width: 100%; height: 80VH;">
+    <v-main class="main_custom" style="overflow:hidden; width: 100%; height: 87VH;">
       <div class="custom_top">
       </div>
       <!-- Provides the application the proper gutter -->
-      <v-container fluid style="width: 100%;height: 80VH;">
+      <v-container fluid style="width: 100%;height: 75VH;">
         <!-- If using vue-router -->
         <router-view></router-view>
       </v-container>
     </v-main>
-    <v-footer style="height: 10px; background: teal"></v-footer>
+    <v-footer style="background: teal"></v-footer>
   </v-app>
 
 </template>
@@ -51,7 +51,7 @@ form_custom .div .scroll {
 }
 .custom_top {
   position: relative;
-  padding-bottom: 10%;
+  margin-bottom: 5VH;
 }
 
 body {

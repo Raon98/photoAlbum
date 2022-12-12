@@ -12,15 +12,15 @@
         is-expanded
     >
       <template v-slot:day-content="{ day, attributes }">
-        <div class="flex flex-col h-full z-10 overflow-hidden">
-          <span class="day-label text-m text-gray-900">{{ day.day }}</span>
+        <div class="flex flex-col h-full z-10 overflow-hidden ">
+          <span class="day-label text-m text-gray-900" style="height: 6VH;">{{ day.day }}</span>
           <div class="flex-grow overflow-y-auto overflow-x-auto">
             <p
                 v-for="attr in attributes"
                 :key="attr.key"
                 class=" leading-tight rounded-sm p-1 mt-0 mb-1"
                 :class="attr.customData.class"
-                style="position: absolute;width: 90%; height: 90%; padding: 5px; text-align: center ; font-size: 10px;"
+                style="position: absolute;width: 90%; height: 90%; padding: 5px; text-align: center ; font-size: 1VW;"
                 @click="detailPhoto(attr)"
             >
               {{ attr.customData.title }}
@@ -92,7 +92,7 @@ export default {
 }
 
 .custom-calendar.vc-container .vc-day {
-  padding: 0 5px 3px 5px;text-align: left;min-height: 90px;min-width: 90px;overflow: auto;background-color: white;
+  padding: 0 5px 3px 5px;text-align: left;min-height: 90px;min-width: 90px;overflow: auto;background-color: black;
 }
 
 .custom-calendar.vc-container .vc-day.weekday-1,
@@ -121,5 +121,8 @@ export default {
   src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/KOTRAHOPE.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
+}
+.vc-day {
+  min-height: 35VH !important;
 }
 </style>

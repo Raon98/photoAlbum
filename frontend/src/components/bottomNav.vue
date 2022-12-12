@@ -1,6 +1,6 @@
 <template>
   <div class="btn-custom">
-    <q-btn push color="teal"  round icon="local_florist" size="20px" style="background: white" />
+    <q-btn push color="teal"  round icon="local_florist" size="2.5VH" style="background: white" />
   </div>
 </template>
 
@@ -22,10 +22,10 @@ export default {
 <style scoped>
 .btn-custom {
   position: relative;
-  margin-right: 20px;
-  margin-left: 80%;
+  margin-left: 20VH;
+  margin-top: -3VH;
   text-align: right;
-  margin-top: 30%;
+  margin-top: 0%;
 
 }
 </style>s

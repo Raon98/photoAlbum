@@ -61,6 +61,6 @@ body {
 }
 
 .content-custom {
-  height: 150%;
+  height: auto;
 }
 </style>
