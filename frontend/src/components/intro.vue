@@ -16,19 +16,27 @@
                 <span class="number-gubn">일</span>
               </div>
             </div>
+            <div class="button-custom">
+              <q-btn :loading="loading" @click="simulateProgress(3)" class="btn-loading-custom">
+                <div style="font-size: 1.5rem">보러가기</div>
+                <template v-slot:loading >
+                  <q-spinner-hourglass class="on-left" size="8vh" style="margin-left: 3vw"/>
+                  <div style="font-size: 1rem; margin-left: 10px" >Loading...</div>
+                </template>
+              </q-btn>
+            </div>
           </div>
         </div>
-        <div class="button-custom">
-          <a href="javascript:void(0)" @click="clsTest">
-            <v-img
-                :src="clickImg"
-                height="7vh"
-                width="7vh"
 
-            ></v-img>
-          </a>
-        </div>
+        <!--        <div class="characterImg-custom">-->
+        <!--          <v-img-->
+        <!--              :src="characterImg"-->
+        <!--              height="15vh"-->
+        <!--              width="15vh"-->
+        <!--          ></v-img>-->
+        <!--        </div>-->
       </div>
+
     </div>
   </transition>
 </template>
@@ -37,14 +45,32 @@
 <script>
 
 import {cheol} from "@/plugins/cheol";
-import {computed} from "vue";
+import {computed, ref} from "vue";
 
 export default {
   name: "intro",
   setup() {
-    const clickImg = require('../assets/images/logoPage.png')
+    const clickImg = require('../assets/images/logoPage1.png')
+    const characterImg = require('../assets/images/logoPage2.png')
     const {store} = cheol()
-    store.commit('PDS/setCls', {test : '123'},)
+
+    const loading = ref(
+        false
+    )
+    const progress = ref(false)
+
+    function simulateProgress() {
+      // we set loading state
+      loading.value = true
+
+      // simulate a delay
+      setTimeout(() => {
+        // we're done, we reset loading state
+        loading.value = false
+      }, 3000)
+    }
+
+    store.commit('PDS/setCls', {test: '123'},)
 
     const cls = computed(() => store.getters['PDS/getCls'])
 
@@ -52,7 +78,7 @@ export default {
       console.log(cls.value)
     }
     return {
-      clickImg,clsTest
+      clickImg, clsTest, characterImg, progress, simulateProgress, loading
     }
   }
 }
@@ -70,25 +96,14 @@ body {
   height: 60vh;
 }
 
-.sign-custom {
-  background: whitesmoke;
-  padding: 10px;
-  width: 80% !important;
-  height: 30% !important;
-  position: center;
-  border-radius: 10px;
+.btn-loading-custom {
+  width: 15vh;
+  font-size: 3vh;
 }
 
-.sign-custom_main {
-  text-align: center;
-}
-
-.custom_main {
-}
 
 .number-custom-main {
   position: relative;
-  width: 100%;
 }
 
 .custom_main .tilte_custom {
@@ -103,27 +118,9 @@ body {
 }
 
 .button-custom {
-  position: absolute;
-  font-size: 3vh;
-  top: 63vh;
-  padding: 5px;
-  margin: 5px 5px 5px 30vh;
+  margin-top: 10vh;
   font-family: 'FlowerSalt';
   color: whitesmoke;
-}
-
-@font-face {
-  font-family: 'KOTRAHOPE';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/KOTRAHOPE.woff2') format('woff2');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'FlowerSalt';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-2@1.0/FlowerSalt.woff2') format('woff2');
-  font-weight: normal;
-  font-style: normal;
 }
 
 .today {
@@ -151,18 +148,18 @@ body {
   color: whitesmoke;
 }
 
-.slide-fade-enter-active {
-  transition: all .3s ease;
+
+@font-face {
+  font-family: 'KOTRAHOPE';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/KOTRAHOPE.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
 }
 
-.slide-fade-leave-active {
-  transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
-}
-
-.slide-fade-enter, .slide-fade-leave-to
-  /* .slide-fade-leave-active below version 2.1.8 */
-{
-  transform: translateX(10px);
-  opacity: 0;
+@font-face {
+  font-family: 'FlowerSalt';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-2@1.0/FlowerSalt.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
 }
 </style>

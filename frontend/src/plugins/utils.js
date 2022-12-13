@@ -5,7 +5,6 @@ export default {
         const utils = {
             isEmpty(value) {
                 return isEmpty(value)
-                store.commit('PDS',value)
             }
         }
         app.provide('$utils', utils)

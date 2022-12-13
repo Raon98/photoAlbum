@@ -1,6 +1,6 @@
 <template>
-  <div class="btn-custom">
-    <q-btn push color="teal"  round icon="local_florist" size="2.5VH" style="background: white"  @click="movePage()"/>
+  <div class="btn-custom" v-if="!$utils.isEmpty(mainFlag)">
+    <q-btn push color="teal"  round icon="local_florist" size="2.5VH" style="background: white"  @click="photoLibraryOpen()"/>
   </div>
 </template>
 
@@ -11,13 +11,18 @@ import {cheol} from "@/plugins/cheol";
 export default {
   name: "bottomNav",
   setup () {
+    const {router,store,$utils,$api} = cheol()
     const valueDt = ref(1)
-    const {router} = cheol()
-    const movePage = () => {
-      router.push('photoSlide')
+
+
+    const mainFlag = computed(()=>store.getters["PDS/getViewFlag"])
+
+
+    const photoLibraryOpen= () => {
+
     }
     return {
-      valueDt,movePage
+      valueDt,photoLibraryOpen,mainFlag,$utils
     }
   }
 }

@@ -7,7 +7,8 @@ export function cheol() {
     const router = useRouter()
 
     return {
-        $api: inject("api"),
+        $api: inject("$api"),
+        $utils : inject("$utils"),
         store,
         router,
     }

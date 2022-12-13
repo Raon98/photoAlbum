@@ -1,13 +1,20 @@
-export const PDS ={
-    namespaced :true,
+export const PDS = {
+    namespaced: true,
     state: {
         cls: {},
-        photo: {}
+        photo: {},
+        viewFlag: false,
     },
     mutations: {
-        setCls(state,cls){
-                state.cls = cls
-            }
+        setCls(state, cls) {
+            state.cls = cls
+        },
+        setPhoto(state, photo) {
+            state.photo = photo
+        },
+        setViewFlag(state, viewFlag){
+            state.viewFlag = viewFlag
+        }
     },
     actions: {
         setCls({commit}, cls) {
@@ -15,6 +22,9 @@ export const PDS ={
         },
         setPhoto({commit}, photo) {
             commit('setPhoto', photo)
+        },
+        setViewFlag({commit}, viewFlag) {
+            commit('setViewFlag', viewFlag)
         }
     },
     getters: {
@@ -23,6 +33,9 @@ export const PDS ={
         },
         getPhoto(state) {
             return state.photo
+        },
+        getViewFlag(state) {
+            return state.viewFlag
         }
     }
 }
