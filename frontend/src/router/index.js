@@ -13,19 +13,9 @@ const routes = [
         component: loadView('intro'),
     },
     {
-        path: '/appRoot',
-        name: 'appRoot',
-        component: loadView('appRoot'),
-    },
-    {
-        path: '/testCo',
-        name: 'testCo',
-        component: loadView('testCo'),
-    },
-    {
-        path: '/photoSlide',
-        name: 'photoSlide',
-        component: loadView('photoSlide'),
+        path: '/AppRoot',
+        name: 'AppRoot',
+        component: loadView('AppRoot'),
     },
 
 ];

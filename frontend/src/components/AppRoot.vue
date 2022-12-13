@@ -14,7 +14,7 @@ import calenderEvent from "@/components/calenderEvent";
 import BottomNav from "@/components/bottomNav";
 
 export default {
-  name: "photoSlide",
+  name: "AppRoot",
   components: {dialogEvent, calenderEvent,BottomNav},
   setup() {
     const active = ref(false)

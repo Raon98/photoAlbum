@@ -18,23 +18,15 @@
             </div>
             <div class="button-custom">
               <q-btn :loading="loading" @click="simulateProgress(3)" class="btn-loading-custom">
-                <div style="font-size: 1.5rem">보러가기</div>
+                <div style="font-size: 3vh">보러가기</div>
                 <template v-slot:loading >
-                  <q-spinner-hourglass class="on-left" size="8vh" style="margin-left: 3vw"/>
-                  <div style="font-size: 1rem; margin-left: 10px" >Loading...</div>
+                  <q-spinner-hourglass class="on-left" size="7vh" style="margin-left: 1vh"/>
+                  <div style="font-size: 1.5vh; margin-left: 10px" >Loading...</div>
                 </template>
               </q-btn>
             </div>
           </div>
         </div>
-
-        <!--        <div class="characterImg-custom">-->
-        <!--          <v-img-->
-        <!--              :src="characterImg"-->
-        <!--              height="15vh"-->
-        <!--              width="15vh"-->
-        <!--          ></v-img>-->
-        <!--        </div>-->
       </div>
 
     </div>
@@ -50,14 +42,17 @@ import {computed, ref} from "vue";
 export default {
   name: "intro",
   setup() {
+    const {store,router} = cheol()
     const clickImg = require('../assets/images/logoPage1.png')
     const characterImg = require('../assets/images/logoPage2.png')
-    const {store} = cheol()
-
     const loading = ref(
         false
     )
     const progress = ref(false)
+    const cls = computed(() => store.getters['PDS/getCls'])
+
+    //화면 초기화
+    store.commit('PDS/setViewFlag', false)
 
     function simulateProgress() {
       // we set loading state
@@ -65,14 +60,13 @@ export default {
 
       // simulate a delay
       setTimeout(() => {
-        // we're done, we reset loading state
+        store.commit('PDS/setViewFlag', loading.value)
+        router.push('AppRoot')
         loading.value = false
+
       }, 3000)
     }
 
-    store.commit('PDS/setCls', {test: '123'},)
-
-    const cls = computed(() => store.getters['PDS/getCls'])
 
     const clsTest = () => {
       console.log(cls.value)

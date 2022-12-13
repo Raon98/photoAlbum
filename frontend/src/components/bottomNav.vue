@@ -1,5 +1,5 @@
 <template>
-  <div class="btn-custom" v-if="!$utils.isEmpty(mainFlag)">
+  <div class="btn-custom" v-if="mainFlag">
     <q-btn push color="teal"  round icon="local_florist" size="2.5VH" style="background: white"  @click="photoLibraryOpen()"/>
   </div>
 </template>
@@ -16,7 +16,7 @@ export default {
 
 
     const mainFlag = computed(()=>store.getters["PDS/getViewFlag"])
-
+    console.log(mainFlag.value)
 
     const photoLibraryOpen= () => {
 
