@@ -27,14 +27,12 @@ export default {
         //     $ui.appLoding();
 
         // const data = store.getters["setItem"]
-        const api = (serviceId, view, params, success, fail, hide) => {
-            _axios.post(+`/serviceId/${serviceId}`, {
+        const api = (service, params, success, fail, hide) => {
+            _axios.post(`/api/${service}`, {
                 "data": {
-                    "serviceID": serviceId,
-                    "view": view,
+                    "service": service,
                 },
                 "Param": params
-
             }).then((res) => {
                 if (!res.data) {
                     console.log(res.data);
@@ -43,9 +41,9 @@ export default {
                 .catch((error) => {
                     console.log(error);
                 })
-            app.config.globalProperties.$api = api
-            app.provide('$api', api)
         };
+        app.config.globalProperties.$api = api
+        app.provide('$api', api)
     },
     axios: _axios
 }

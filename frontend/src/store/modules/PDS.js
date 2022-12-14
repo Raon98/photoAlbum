@@ -1,38 +1,48 @@
 export const PDS = {
     namespaced: true,
     state: {
-        cls: {},
-        photo: {},
+        calList : [],
+        detList : [],
+        det : {},
         viewFlag: false,
     },
     mutations: {
-        setCls(state, cls) {
-            state.cls = cls
+        setCalList(state, calList) {
+            state.calList = calList
         },
-        setPhoto(state, photo) {
-            state.photo = photo
+        setDet(state, det) {
+            state.del = det
+        },
+        setDetList(state, detList) {
+            state.delList = detList
         },
         setViewFlag(state, viewFlag){
             state.viewFlag = viewFlag
         }
     },
     actions: {
-        setCls({commit}, cls) {
-            commit('setCls', cls)
+        setCalList({commit}, calList) {
+            commit('setCalList', calList)
         },
-        setPhoto({commit}, photo) {
-            commit('setPhoto', photo)
+        setDet({commit}, det) {
+            commit('setDet', det)
+        },
+        setDetList({commit}, detList) {
+            commit('setDetList', detList)
         },
         setViewFlag({commit}, viewFlag) {
             commit('setViewFlag', viewFlag)
         }
     },
     getters: {
-        getCls(state) {
-            return state.cls
+        getCalList(state) {
+            return state.calList
         },
-        getPhoto(state) {
-            return state.photo
+        getDet(state) {
+            return state.det
+        },
+        getDetList(state) {
+            return state.detList
         },
         getViewFlag(state) {
             return state.viewFlag

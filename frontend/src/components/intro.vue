@@ -38,11 +38,12 @@
 
 import {cheol} from "@/plugins/cheol";
 import {computed, ref} from "vue";
+import axios from "axios";
 
 export default {
   name: "intro",
   setup() {
-    const {store,router} = cheol()
+    const {store,router,$api} = cheol()
     const clickImg = require('../assets/images/logoPage1.png')
     const characterImg = require('../assets/images/logoPage2.png')
     const loading = ref(
@@ -67,7 +68,9 @@ export default {
       }, 3000)
     }
 
-
+    $api('test',{},(res)=> {
+      console.log("백엔드 데이터 확인" + res.data)
+    })
     const clsTest = () => {
       console.log(cls.value)
     }

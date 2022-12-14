@@ -22,8 +22,6 @@ app.provide('emitter', emitter);
 
 app.use(router).use(store).use(Vuetify).use(VCalendar,{}).use(VueNumber)
 
-
-
 app.use(api,{store,router})
 app.use(utils,{store})
 app.config.globalProperties.$axios = axios;
