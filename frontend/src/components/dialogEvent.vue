@@ -1,12 +1,12 @@
 <template>
   <div class="q-pa-md q-gutter-sm" id="layerPopup">
     <q-dialog v-model="active">
-      <q-layout view="Lhh lpR fff" container class="bg-white" style="height: 60%; overflow-y: hidden; overflow: hidden">
+      <q-layout view="Lhh lpR fff" container class="bg-white" style="height: 65vh; overflow-y: hidden; overflow: hidden">
         <q-header class="bg-white text-green-100" style="text-align: right">
           <q-btn flat v-close-popup round dense icon="close" @click="dialogClose()"/>
         </q-header>
         <q-card class="my-card">
-          <div class="q-pa-md" style="margin-right: 0.5vh">
+          <div class="q-pa-md" style="margin-right: 0.5vh;">
             <q-carousel
                 animated
                 v-model="slide"
@@ -15,7 +15,7 @@
                 navigation
                 infinite
             >
-              <template v-for="(item,i) in detList"  :key="i" >
+              <template v-for="(item,i) in detList"  :key="i" style="width: 50px">
                 <q-carousel-slide :name="i" :img-src="item.delstImg"/>
               </template>
                 <template v-slot:control>
@@ -69,9 +69,9 @@ export default {
         //computed(() => store.getters['PDS/getDel'])
     const detList = ref([{
       num : '0' ,
-      delstImg: 'https://cdn.quasar.dev/img/mountains.jpg',
+      delstImg: require('../assets/images/87154229.png'),
       tit : '음주여행',
-      con : '맛있쪙'
+      con : '맛있쪙맛있쪙맛있쪙맛있쪙맛있쪙맛있쪙맛있쪙맛있쪙맛있쪙맛있쪙맛있쪙맛있쪙맛있쪙맛있쪙맛있쪙맛있쪙맛있쪙맛있쪙맛있쪙'
     },
       {
         num : '1' ,

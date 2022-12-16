@@ -12,6 +12,10 @@ app.use(cors({              // front 서버인 127.0.0.1:8080 의 요청을 허�
   origin: process.env.VUE_APP_URL,
   credentials:true,
 }));
+app.use(cors({              // front 서버인 127.0.0.1:8080 의 요청을 허용하도록 cors 사용
+  origin: 'http://localhost:8080',
+  credentials:true,
+}));
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');

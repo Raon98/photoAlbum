@@ -24,4 +24,7 @@ pnpm-debug.log*
 
 .env
 .env .production
+
 .env.production
+/backend/
+/aseets/
