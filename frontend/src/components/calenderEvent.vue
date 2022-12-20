@@ -9,7 +9,8 @@
     <div>
       <div class="q-pb-sm q-gutter-sm">
         <q-badge color="teal" style="font-size: 1.5vh; font-family: 'FlowerSalt'">
-          <span style="font-size: 2vh">기록일 : </span>{{ date }}
+          <span style="font-size: 2vh" v-if="date">기록일 : {{ date }} </span>
+          <span style="font-size: 2vh" v-else> 기록일을 클릭해요!</span>
         </q-badge>
       </div>
       <div class="q-gutter-md">
