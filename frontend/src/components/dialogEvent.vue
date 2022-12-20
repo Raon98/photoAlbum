@@ -103,7 +103,6 @@ export default {
 
     console.log(JSON.stringify(det.value))
     const dialogClose = () => {
-      active.value = false
       emit("update:active", !active.value)
     }
 

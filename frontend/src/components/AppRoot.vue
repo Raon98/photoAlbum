@@ -3,22 +3,26 @@
     <calenderEvent/>
     <q-btn label="Carousel" color="primary" @click="openDialog()"/>
   </div>
-  <dialogEvent v-model:active="active">ㅎㅇ</dialogEvent>
-  <bottom-nav/>
+  <dialogEvent v-model:active="active"></dialogEvent>
+  <album-grid v-model:activeAlbum="activeAlbum"></album-grid>
+  <bottom-nav></bottom-nav>
 </template>
 
 <script>
-import {ref, watch} from "vue";
+import {computed, ref, watch} from "vue";
 import dialogEvent from "@/components/dialogEvent";
 import calenderEvent from "@/components/calenderEvent";
 import BottomNav from "@/components/bottomNav";
+import albumGrid from "@/components/albumGrid";
+import {cheol} from "@/plugins/cheol";
 
 export default {
   name: "AppRoot",
-  components: {dialogEvent, calenderEvent,BottomNav},
+  components: {dialogEvent, calenderEvent,BottomNav,albumGrid},
   setup() {
+    const {router,store} = cheol()
     const active = ref(false)
-    console.log(active.value)
+    const activeAlbum = ref(false)
     const colors = ref([
       'indigo',
       'warning',
@@ -33,12 +37,12 @@ export default {
       'Fourth',
       'Fifth',
     ])
+
     watch(active, value => {
       console.log("ACTIVE 반응")
       console.log(value)
       //  active.value=false
     })
-
     const openDialog = () => {
       active.value = true
     }
@@ -47,7 +51,7 @@ export default {
     }
 
 
-    return {colors, slides, viewItem, active, openDialog}
+    return {colors, slides, viewItem, active, openDialog,activeAlbum}
   }
 }
 </script>

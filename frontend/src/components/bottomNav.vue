@@ -10,16 +10,13 @@ import {cheol} from "@/plugins/cheol";
 
 export default {
   name: "bottomNav",
-  setup () {
+  setup (props, {emit}) {
     const {router,store,$utils,$api} = cheol()
     const valueDt = ref(1)
-
-
     const mainFlag = computed(()=>store.getters["PDS/getViewFlag"])
-    console.log(mainFlag.value)
 
     const photoLibraryOpen= () => {
-
+      store.commit('PDS/setAlbumFlag', true)
     }
     return {
       valueDt,photoLibraryOpen,mainFlag,$utils

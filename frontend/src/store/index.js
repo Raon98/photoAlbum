@@ -7,7 +7,7 @@ export default createStore({
     modules: {PDS},
     plugins: [
         createPersistedState({
-            paths: ["PDS.cls"],
+            paths: ["PDS.viewFlag"],
             storage: window.localStorage
         })
     ]

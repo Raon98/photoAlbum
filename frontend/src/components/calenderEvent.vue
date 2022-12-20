@@ -38,7 +38,6 @@ export default {
     const start = ref('')
     const type = ref('month')
     const typeOptions = ref([
-
     ])
     const date = ref('2022/09/17')
     const events = ['2022/09/17', '2022/09/18', '2022/09/21']
