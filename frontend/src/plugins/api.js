@@ -34,9 +34,8 @@ export default {
                 },
                 "Param": params
             }).then((res) => {
-                if (!res.data) {
-                    success(res.data)
-                    console.log(res.data);
+                if (res) {
+                    success(res)
                 }
             })
                 .catch((error) => {

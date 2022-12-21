@@ -28,3 +28,4 @@ pnpm-debug.log*
 .env.production
 /backend/
 /aseets/
+/aseet/

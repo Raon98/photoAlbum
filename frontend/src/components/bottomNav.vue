@@ -1,6 +1,6 @@
 <template>
   <div class="btn-custom" v-if="mainFlag">
-    <q-btn push color="teal"  round icon="local_florist" size="2.5VH" style="background: white"  @click="photoLibraryOpen()"/>
+    <q-btn push color="teal"  round icon="cloud_upload" size="2.5VH" style="background: white"  @click="photoLibraryOpen()"/>
   </div>
 </template>
 

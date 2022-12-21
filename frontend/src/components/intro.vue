@@ -50,29 +50,28 @@ export default {
         false
     )
     const progress = ref(false)
-    const cls = computed(() => store.getters['PDS/getCls'])
 
     //화면 초기화
     store.commit('PDS/setViewFlag', false)
-
     function simulateProgress() {
       // we set loading state
       loading.value = true
-
       // simulate a delay
       setTimeout(() => {
         store.commit('PDS/setViewFlag', loading.value)
         router.push('AppRoot')
         loading.value = false
-
       }, 3000)
     }
 
-    $api('test',{},(res)=> {
-      console.log("백엔드 데이터 확인" + res.data)
+    $api('remember',{},(res)=> {
+      let result = res.data
+      console.log(result.Dec[0])
+      console.log("백엔드 데이터 확인")
     })
+
     const clsTest = () => {
-      console.log(cls.value)
+      //console.log(cls.value)
     }
     return {
       clickImg, clsTest, characterImg, progress, simulateProgress, loading
