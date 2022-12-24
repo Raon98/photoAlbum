@@ -17,12 +17,12 @@
         <q-date
             minimal
             v-model="date"
-            :events="events"
+            :events="evtList"
             :event-color="(date) => date.slice(-1) % 2 === 0 ? 'teal' : 'orange'"
-            :options="events"
+            :options="evtList"
             class="cel_custom"
             color='orange'
-            @click="test(date)"
+            @click="openPhotobook(date)"
         />
       </div>
     </div>
@@ -31,25 +31,32 @@
 
 <script>
 import {ref} from "vue";
+import {cheol} from "@/plugins/cheol";
+import {groupBy, uniqBy} from "lodash";
 
 export default {
   name: "calenderEvent",
   setup() {
-    const dateOpen = ref(false)
-    const start = ref('')
-    const type = ref('month')
-    const typeOptions = ref([
-    ])
-    const date = ref('2022/09/17')
-    const events = ['2022/09/17', '2022/09/18', '2022/09/21']
+    const {store, router, $api} = cheol()
 
-    const detailPhoto = (item) => {
-      console.log(item)
+    const date = ref('2022/09/17')
+    const evtList = ref([])
+    const dayList = ref([])
+    $api('remember', {}, (res) => {
+      // 날짜값 가져와서 달력에 표시
+      let events = uniqBy(res.data, 'p_day')
+      for (let key in events) {
+        evtList.value.push(events[key].p_day)
+      }
+      // 날짜 기준으로 데이터 병합
+      dayList.value = groupBy(res.data, 'p_day')
+    })
+
+    const openPhotobook = (day) => {
+
+      console.log(day)
     }
-    const test = (item) => {
-      console.log(item)
-    }
-    return {dateOpen, start, type, detailPhoto, date, events,test}
+    return {date, openPhotobook,evtList}
   }
 }
 </script>
@@ -62,6 +69,7 @@ export default {
   font-weight: normal;
   font-style: normal;
 }
+
 @font-face {
   font-family: 'FlowerSalt';
   src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-2@1.0/FlowerSalt.woff2') format('woff2');

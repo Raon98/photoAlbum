@@ -67,6 +67,8 @@ export default {
     const slide = ref(0)
     const det = ref({})
         //computed(() => store.getters['PDS/getDel'])
+
+
     const detList = ref([{
       num : '0' ,
       delstImg: require('../assets/images/87154229.png'),

@@ -64,11 +64,7 @@ export default {
       }, 3000)
     }
 
-    $api('remember',{},(res)=> {
-      let result = res.data
-      console.log(result.Dec[0])
-      console.log("백엔드 데이터 확인")
-    })
+
 
     const clsTest = () => {
       //console.log(cls.value)
