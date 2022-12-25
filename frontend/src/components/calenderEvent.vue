@@ -5,6 +5,7 @@
       Every love story is beautiful but ours is my favorite
     </p>
   </div>
+  <button @click="active = true">열기 </button>
   <div class="q-pa-md">
     <div>
       <div class="q-pb-sm q-gutter-sm">
@@ -27,19 +28,22 @@
       </div>
     </div>
   </div>
+  <dialogEvent v-model:active="active"></dialogEvent>
 </template>
 
 <script>
 import {ref} from "vue";
 import {cheol} from "@/plugins/cheol";
 import {groupBy, uniqBy} from "lodash";
+import dialogEvent from "@/components/dialogEvent";
 
 export default {
   name: "calenderEvent",
+  components : [dialogEvent],
   setup() {
-    const {store, router, $api} = cheol()
-
-    const date = ref('2022/09/17')
+    const {store, router, $api,$utils} = cheol()
+    const active = ref(false)
+    const date = ref('2022/09/16')
     const evtList = ref([])
     const dayList = ref([])
     $api('remember', {}, (res) => {
@@ -49,14 +53,20 @@ export default {
         evtList.value.push(events[key].p_day)
       }
       // 날짜 기준으로 데이터 병합
-      dayList.value = groupBy(res.data, 'p_day')
+      dayList.value = res.data
     })
 
     const openPhotobook = (day) => {
+      let list = []
+      if (!$utils.isEmpty(day)){
+        list = dayList.value.filter(value => value.p_day === day)
+        console.log(JSON.stringify(list))
+        store.commit('PDS/setDetList', JSON.stringify(list))
+        store.commit('PDS/setDiaFlag', true)
+      }
 
-      console.log(day)
     }
-    return {date, openPhotobook,evtList}
+    return {date, openPhotobook,evtList,active}
   }
 }
 </script>

@@ -5,7 +5,7 @@
         <q-header class="bg-white text-green-100" style="text-align: right">
           <q-btn flat v-close-popup round dense icon="close" @click="dialogClose()"/>
         </q-header>
-        <q-card class="my-card">
+        <q-card class="my-card" style="font-family: 'KOTRAHOPE'">
           <div class="q-pa-md" style="margin-right: 0.5vh;">
             <q-carousel
                 animated
@@ -16,7 +16,7 @@
                 infinite
             >
               <template v-for="(item,i) in detList"  :key="i" style="width: 50px">
-                <q-carousel-slide :name="i" :img-src="item.delstImg"/>
+                <q-carousel-slide :name="i" :img-src="require(`../assets/images/${item.p_photo}.jpg`)"/>
               </template>
                 <template v-slot:control>
                   <q-carousel-control
@@ -32,14 +32,13 @@
               </template>
             </q-carousel>
           </div>
-
           <q-img  height="8vh">
-            <div class="absolute-bottom text-h6">
-              {{ det.tit }}
+            <div class="absolute-bottom" style="font-size:3.5vh; background: #bcaaa4; font-family: 'KOTRAHOPE'">
+              {{ det.p_tit }}
             </div>
           </q-img>
-          <q-card-section>
-            {{ det.con }}
+          <q-card-section style="font-size: 2.5vh; background: #fff3e0; color: darkslategrey">
+            {{ det.p_con }}
           </q-card-section>
         </q-card>
       </q-layout>
@@ -58,7 +57,7 @@ export default {
   components: {
     clickOutside: vClickOutside
   },
-  props: ['active'],
+  props: ['active','detList'],
   setup(props, {emit}) {
     const {store, router} = cheol()
     const active = computed(() => props.active)
@@ -68,42 +67,21 @@ export default {
     const det = ref({})
         //computed(() => store.getters['PDS/getDel'])
 
-
-    const detList = ref([{
-      num : '0' ,
-      delstImg: require('../assets/images/87154229.png'),
-      tit : '음주여행',
-      con : '맛있쪙맛있쪙맛있쪙맛있쪙맛있쪙맛있쪙맛있쪙맛있쪙맛있쪙맛있쪙맛있쪙맛있쪙맛있쪙맛있쪙맛있쪙맛있쪙맛있쪙맛있쪙맛있쪙'
-    },
-      {
-        num : '1' ,
-        delstImg: 'https://cdn.quasar.dev/img/parallax1.jpg',
-        tit : '제빵여행',
-        con : '맛있쪙'
-      },
-      {
-        num : '2' ,
-        delstImg: 'https://cdn.quasar.dev/img/parallax2.jpg',
-        tit : '오뎅여행',
-        con : '맛있쪙'
-      },
-      {
-        num : '3' ,
-        delstImg: 'https://cdn.quasar.dev/img/quasar.jpg',
-        tit : '호떡여행',
-        con : '맛있쪙'
-      },
-    ])
-    //초기화
-    det.value = detList.value[0]
-
-    watch(slide,value => {
-     det.value = detList.value.filter(value => value.num === String(slide.value))[0]
-      console.log(slide.value)
-      console.log(det.value)
+    const detList = computed(() => props.detList)
+    watch(detList,value => {
+      slide.value = 0
+      det.value = detList.value[0]
     })
 
-    console.log(JSON.stringify(det.value))
+
+
+    watch(slide,value => {
+      //console.log(JSON.stringify(detList.value))
+     det.value = detList.value.filter(value => value.p_num === String(slide.value))[0]
+      // console.log(slide.value)
+      // console.log(det.value)
+    })
+
     const dialogClose = () => {
       emit("update:active", !active.value)
     }
@@ -126,6 +104,22 @@ export default {
 </script>
 
 <style scoped>
+
+
+@font-face {
+  font-family: 'KOTRAHOPE';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/KOTRAHOPE.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'FlowerSalt';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-2@1.0/FlowerSalt.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
 .div .scroll {
   overflow: hidden !important;
 }

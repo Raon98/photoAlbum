@@ -6,6 +6,7 @@ export const PDS = {
         det : {},
         viewFlag: false,
         albumFlag : false,
+        diaFlag : false,
     },
     mutations: {
         setCalList(state, calList) {
@@ -22,6 +23,9 @@ export const PDS = {
         },
         setAlbumFlag(state, albumFlag){
             state.albumFlag = albumFlag
+        },
+        setDiaFlag(state, diaFlag){
+            state.diaFlag = diaFlag
         }
 
     },
@@ -41,6 +45,9 @@ export const PDS = {
         setAlbumFlag({commit}, albumFlag) {
             commit('setAlbumFlag', albumFlag)
         },
+        setDiaFlag({commit}, diaFlag) {
+            commit('setDiaFlag', diaFlag)
+        },
     },
     getters: {
         getCalList(state) {
@@ -57,6 +64,9 @@ export const PDS = {
         },
         getAlbumFlag(state) {
             return state.albumFlag
+        },
+        getDiaFlag(state) {
+            return state.diaFlag
         }
     }
 }
