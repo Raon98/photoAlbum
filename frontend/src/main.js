@@ -15,6 +15,8 @@ import VueNumber from "vue-number-animation";
 const app = createApp(App).use(Quasar, quasarUserOptions)
 app.config.productionTip =false
 
+import '@/assets/css/base.css'
+
 const emitter = mitts();
 app.config.globalProperties.emitter = emitter;
 app.provide('emitter', emitter);

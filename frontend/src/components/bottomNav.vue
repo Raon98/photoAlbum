@@ -16,7 +16,7 @@ export default {
     const mainFlag = computed(()=>store.getters["PDS/getViewFlag"])
 
     const photoLibraryOpen= () => {
-      store.commit('PDS/setAlbumFlag', true)
+      //store.commit('PDS/setAlbumFlag', true)
     }
     return {
       valueDt,photoLibraryOpen,mainFlag,$utils
